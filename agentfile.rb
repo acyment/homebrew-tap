@@ -3,27 +3,25 @@ class Agentfile < Formula
   homepage "https://github.com/acyment/agentfile"
   license "MIT"
 
-  # Prebuilt binaries hosted on this public tap (source repo is private).
-  # Linux builds are static musl binaries.
   on_macos do
     on_arm do
-      url "https://github.com/acyment/homebrew-tap/releases/download/agentfile-v0.1.0/agentfile-aarch64-apple-darwin.tar.gz"
-      sha256 "b6f3d1b0f6fedc7a240795a7f21941d0bfc98500300882cb098d11694ed35c72"
+      url "https://github.com/acyment/homebrew-tap/releases/download/agentfile-v0.2.0/agentfile-aarch64-apple-darwin.tar.gz"
+      sha256 "d12b8224620bdc1fc856887255fc73c10a1717d823c505b0f67b0f17b7d14291"
     end
     on_intel do
-      url "https://github.com/acyment/homebrew-tap/releases/download/agentfile-v0.1.0/agentfile-x86_64-apple-darwin.tar.gz"
-      sha256 "1c080b40e00e4aaedc65d35f4b597e5ab9ed92d2c85c6e7ffcfd7e62f17d056e"
+      url "https://github.com/acyment/homebrew-tap/releases/download/agentfile-v0.2.0/agentfile-x86_64-apple-darwin.tar.gz"
+      sha256 "03a109d768681ef03e96b52775e7d607e7bea9dcab88369679562648bebbaee6"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/acyment/homebrew-tap/releases/download/agentfile-v0.1.0/agentfile-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "d200bd3a4eaff033055cd26ce5f94ed60af31422b47c2d4a65bbf67daa3eaac9"
+      url "https://github.com/acyment/homebrew-tap/releases/download/agentfile-v0.2.0/agentfile-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "5b62463ac2617364c8782c18750c7ccf03676fa65cb1cf052e15f80281eaea72"
     end
     on_intel do
-      url "https://github.com/acyment/homebrew-tap/releases/download/agentfile-v0.1.0/agentfile-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "41f35c06ddd34fca885428dac0a8ddb791290cb0d9aee22ec2d98807f2be0cd1"
+      url "https://github.com/acyment/homebrew-tap/releases/download/agentfile-v0.2.0/agentfile-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "d4985aa5d302dc9d54cde8bbe2eafe5ad256421941a78ff2bf878309c7225f5d"
     end
   end
 
@@ -32,6 +30,6 @@ class Agentfile < Formula
   end
 
   test do
-    assert_match "0.1.0", shell_output("#{bin}/agentfile --version")
+    assert_match "0.2.0", shell_output("#{bin}/agentfile --version")
   end
 end
