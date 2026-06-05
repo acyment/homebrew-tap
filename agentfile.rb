@@ -1,7 +1,6 @@
 class Agentfile < Formula
   desc "Distribute agentic SDLC conventions across AI coding agents and machines"
   homepage "https://github.com/acyment/agentfile"
-  version "0.1.0"
   license "MIT"
 
   # Prebuilt binaries hosted on this public tap (source repo is private).
