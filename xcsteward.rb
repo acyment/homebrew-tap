@@ -12,6 +12,34 @@ class Xcsteward < Formula
   def install
     system "swift", "build", "-c", "release", "--disable-sandbox"
     bin.install ".build/release/xcsteward"
+
+    skills = buildpath/"Examples/agents/skills"
+    pkgshare.install skills if skills.exist?
+  end
+
+  def caveats
+    skill_dir = pkgshare/"skills/xcsteward"
+
+    if skill_dir.exist?
+      <<~EOS
+        Want the optional XCSteward agent skill installed too?
+
+        Codex example:
+          mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+          cp -R "#{skill_dir}" "${CODEX_HOME:-$HOME/.codex}/skills/xcsteward"
+
+        The reusable skill is installed here:
+          #{skill_dir}
+      EOS
+    else
+      <<~EOS
+        Want the optional XCSteward agent skill installed too?
+
+        This release does not bundle the reusable skill yet. Use the current
+        copy from:
+          https://github.com/acyment/XCSteward/tree/main/Examples/agents/skills/xcsteward
+      EOS
+    end
   end
 
   test do
